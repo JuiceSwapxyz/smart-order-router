@@ -1,5 +1,5 @@
 import { BigNumber } from '@ethersproject/bignumber';
-import { ChainId, Currency, Ether, Token } from '@uniswap/sdk-core';
+import { ChainId, Currency, Ether, Token } from '@juiceswapxyz/sdk-core';
 import { TokenList } from '@uniswap/token-lists';
 import { Pair } from '@uniswap/v2-sdk';
 import { encodeSqrtRatioX96, FeeAmount, Pool as V3Pool } from '@uniswap/v3-sdk';
@@ -96,7 +96,7 @@ export const USDC_DAI_V4_MEDIUM = new V4Pool(
   USDC,
   DAI,
   FeeAmount.MEDIUM,
-60,
+  60,
   ADDRESS_ZERO,
   encodeSqrtRatioX96(1, 1),
   8,

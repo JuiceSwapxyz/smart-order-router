@@ -12,7 +12,7 @@ import {
   Percent,
   Token,
   TradeType,
-} from '@uniswap/sdk-core';
+} from '@juiceswapxyz/sdk-core';
 import {
   SwapOptions as UniversalRouterSwapOptions,
   UniversalRouterVersion,
@@ -181,13 +181,13 @@ export type SwapOptionsSwapRouter02 = {
     s: string;
   } & (
     | {
-        amount: string;
-        deadline: string;
-      }
+      amount: string;
+      deadline: string;
+    }
     | {
-        nonce: string;
-        expiry: string;
-      }
+      nonce: string;
+      expiry: string;
+    }
   );
 };
 

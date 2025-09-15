@@ -4,7 +4,7 @@ import {
   Ether,
   Fraction,
   TradeType
-} from '@uniswap/sdk-core';
+} from '@juiceswapxyz/sdk-core';
 import { Pair } from '@uniswap/v2-sdk';
 import { Pool } from '@uniswap/v3-sdk';
 import { Pool as PoolV4 } from '@uniswap/v4-sdk';

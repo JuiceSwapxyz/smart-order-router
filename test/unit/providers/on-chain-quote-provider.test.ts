@@ -1,4 +1,4 @@
-import { ChainId, Token } from '@uniswap/sdk-core';
+import { ChainId, Token } from '@juiceswapxyz/sdk-core';
 import {
   CurrencyAmount,
   ID_TO_PROVIDER,
@@ -38,15 +38,15 @@ describe('on chain quote provider', () => {
     ]
     const v4Routes = [
       new V4Route(
-  [new Pool(
+        [new Pool(
           mockB,
           mockA,
           3000,
           60,
           ADDRESS_ZERO,
-    79186511702831612165570076748,
-    100000000000000000000,
-    -11,
+          79186511702831612165570076748,
+          100000000000000000000,
+          -11,
         )],
         mockA,
         mockB,

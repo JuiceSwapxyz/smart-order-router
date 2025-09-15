@@ -46,7 +46,7 @@ import {
   WETH_NONTOKEN_MEDIUM,
   WETH_USDT
 } from '../../../../../test-util/mock-data';
-import { ChainId, TradeType, WETH9 } from '@uniswap/sdk-core';
+import { ChainId, TradeType, WETH9 } from '@juiceswapxyz/sdk-core';
 import { Protocol } from '@uniswap/router-sdk';
 
 export function getMockedMixedGasModel(): IGasModel<MixedRouteWithValidQuote> {

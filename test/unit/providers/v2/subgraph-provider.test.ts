@@ -1,4 +1,4 @@
-import { ChainId } from '@uniswap/sdk-core';
+import { ChainId } from '@juiceswapxyz/sdk-core';
 import dotenv from 'dotenv';
 import { GraphQLClient } from 'graphql-request';
 import sinon from 'sinon';
@@ -10,7 +10,7 @@ describe('SubgraphProvider V2', () => {
 
   const virtualTokenAddress = '0x0b3e328455c4059eeb9e3f84b5543f74e24e7e1b';
   const FEI = '0x956f47f50a910163d8bf957cf5846d573e7f87ca';
-  
+
   function constructPool(withVirtualToken: boolean, trackedReservedEth: string) {
     return {
       id: '0xAddress1',
@@ -33,9 +33,9 @@ describe('SubgraphProvider V2', () => {
         id: isToken0 ? FEI : '0xToken0',
         symbol: isToken0 ? 'FEI' : 'TOKEN0'
       },
-      token1: { 
-        id: isToken0 ? '0xToken1' : FEI, 
-        symbol: isToken0 ? 'TOKEN1' : 'FEI' 
+      token1: {
+        id: isToken0 ? '0xToken1' : FEI,
+        symbol: isToken0 ? 'TOKEN1' : 'FEI'
       },
       totalSupply: '100000',
       trackedReserveETH: trackedReservedEth,
@@ -49,7 +49,7 @@ describe('SubgraphProvider V2', () => {
   let subgraphProviderMainnet: V2SubgraphProvider;
   let subgraphProviderBase: V2SubgraphProvider;
 
-  beforeEach(() => {});
+  beforeEach(() => { });
 
   afterEach(() => {
     sinon.restore();

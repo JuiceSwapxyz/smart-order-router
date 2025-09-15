@@ -1,5 +1,5 @@
 import { Protocol } from '@uniswap/router-sdk';
-import { Currency } from '@uniswap/sdk-core';
+import { Currency } from '@juiceswapxyz/sdk-core';
 import { Pair } from '@uniswap/v2-sdk';
 import { Pool as V3Pool } from '@uniswap/v3-sdk';
 import { Pool as V4Pool } from '@uniswap/v4-sdk';
@@ -59,8 +59,7 @@ export class CachedRoute<Route extends SupportedRoutes> {
         return (this.route as V4Route).pools
           .map(
             (pool) =>
-              `[V4]${getAddress(pool.token0)}/${getAddress(pool.token1)}/${
-                pool.fee
+              `[V4]${getAddress(pool.token0)}/${getAddress(pool.token1)}/${pool.fee
               }/${pool.hooks}/${pool.tickSpacing}`
           )
           .join('->');

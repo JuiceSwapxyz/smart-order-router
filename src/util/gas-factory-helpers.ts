@@ -2,7 +2,7 @@ import { estimateL1Gas, estimateL1GasCost } from '@eth-optimism/sdk';
 import { BigNumber } from '@ethersproject/bignumber';
 import { BaseProvider, TransactionRequest } from '@ethersproject/providers';
 import { Protocol } from '@uniswap/router-sdk';
-import { ChainId, Percent, Token, TradeType } from '@uniswap/sdk-core';
+import { ChainId, Percent, Token, TradeType } from '@juiceswapxyz/sdk-core';
 import { UniversalRouterVersion } from '@uniswap/universal-router-sdk';
 import { Pair } from '@uniswap/v2-sdk';
 import { FeeAmount, Pool } from '@uniswap/v3-sdk';
@@ -506,10 +506,10 @@ export function initSwapRouteFromExisting(
 
   const quoteGasAndPortionAdjusted = swapRoute.portionAmount
     ? portionProvider.getQuoteGasAndPortionAdjusted(
-        swapRoute.trade.tradeType,
-        quoteGasAdjusted,
-        swapRoute.portionAmount
-      )
+      swapRoute.trade.tradeType,
+      quoteGasAdjusted,
+      swapRoute.portionAmount
+    )
     : undefined;
   const routesWithValidQuotePortionAdjusted =
     portionProvider.getRouteWithQuotePortionAdjusted(
@@ -533,10 +533,10 @@ export function initSwapRouteFromExisting(
     blockNumber: BigNumber.from(swapRoute.blockNumber),
     methodParameters: swapRoute.methodParameters
       ? ({
-          calldata: swapRoute.methodParameters.calldata,
-          value: swapRoute.methodParameters.value,
-          to: swapRoute.methodParameters.to,
-        } as MethodParameters)
+        calldata: swapRoute.methodParameters.calldata,
+        value: swapRoute.methodParameters.value,
+        to: swapRoute.methodParameters.to,
+      } as MethodParameters)
       : undefined,
     simulationStatus: swapRoute.simulationStatus,
     portionAmount: swapRoute.portionAmount,

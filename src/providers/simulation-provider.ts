@@ -1,5 +1,5 @@
 import { JsonRpcProvider } from '@ethersproject/providers';
-import { ChainId, TradeType } from '@uniswap/sdk-core';
+import { ChainId, TradeType } from '@juiceswapxyz/sdk-core';
 import { BigNumber } from 'ethers/lib/ethers';
 
 import {

@@ -1,4 +1,4 @@
-import { Fraction, Token } from '@uniswap/sdk-core';
+import { Fraction, Token } from '@juiceswapxyz/sdk-core';
 import { parseAmount } from '../../../../../src';
 import { calculateRatioAmountIn } from '../../../../../src/routers/alpha-router/functions/calculate-ratio-amount-in';
 

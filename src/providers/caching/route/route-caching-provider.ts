@@ -10,7 +10,7 @@ import {
   Currency,
   CurrencyAmount,
   TradeType,
-} from '@uniswap/sdk-core';
+} from '@juiceswapxyz/sdk-core';
 
 import { AlphaRouterConfig } from '../../../routers';
 import { SwapOptions } from '../../../routers/router';

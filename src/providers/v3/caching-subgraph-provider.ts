@@ -1,4 +1,4 @@
-import { ChainId } from '@uniswap/sdk-core';
+import { ChainId } from '@juiceswapxyz/sdk-core';
 
 import { Protocol } from '@uniswap/router-sdk';
 import { CachingSubgraphProvider } from '../caching-subgraph-provider';
@@ -13,8 +13,7 @@ import { IV3SubgraphProvider, V3SubgraphPool } from './subgraph-provider';
  */
 export class CachingV3SubgraphProvider
   extends CachingSubgraphProvider<V3SubgraphPool>
-  implements IV3SubgraphProvider
-{
+  implements IV3SubgraphProvider {
   /**
    * Creates an instance of CachingV3SubgraphProvider.
    * @param chainId The chain id to use.

@@ -1,4 +1,4 @@
-import { ChainId, Token } from '@uniswap/sdk-core';
+import { ChainId, Token } from '@juiceswapxyz/sdk-core';
 import retry from 'async-retry';
 import Timeout from 'await-timeout';
 import { gql, GraphQLClient } from 'graphql-request';
@@ -89,10 +89,9 @@ export class V2SubgraphProvider implements IV2SubgraphProvider {
       : undefined;
 
     log.info(
-      `Getting V2 pools from the subgraph with page size ${this.pageSize}${
-        providerConfig?.blockNumber
-          ? ` as of block ${providerConfig?.blockNumber}`
-          : ''
+      `Getting V2 pools from the subgraph with page size ${this.pageSize}${providerConfig?.blockNumber
+        ? ` as of block ${providerConfig?.blockNumber}`
+        : ''
       }.`
     );
 
@@ -156,9 +155,9 @@ export class V2SubgraphProvider implements IV2SubgraphProvider {
       // 2. Virtual pair pools (only for BASE chain) - split into two queries
       ...(this.chainId === ChainId.BASE
         ? [
-            {
-              name: 'Virtual pair pools (token0)',
-              query: gql`
+          {
+            name: 'Virtual pair pools (token0)',
+            query: gql`
             query getVirtualPoolsToken0($pageSize: Int!, $id: String, $virtualToken: String!) {
               pairs(
                 first: $pageSize
@@ -178,11 +177,11 @@ export class V2SubgraphProvider implements IV2SubgraphProvider {
               }
             }
           `,
-              variables: { virtualToken: virtualTokenAddress },
-            },
-            {
-              name: 'Virtual pair pools (token1)',
-              query: gql`
+            variables: { virtualToken: virtualTokenAddress },
+          },
+          {
+            name: 'Virtual pair pools (token1)',
+            query: gql`
             query getVirtualPoolsToken1($pageSize: Int!, $id: String, $virtualToken: String!) {
               pairs(
                 first: $pageSize
@@ -202,9 +201,9 @@ export class V2SubgraphProvider implements IV2SubgraphProvider {
               }
             }
           `,
-              variables: { virtualToken: virtualTokenAddress },
-            },
-          ]
+            variables: { virtualToken: virtualTokenAddress },
+          },
+        ]
         : []),
       // 3. High tracked reserve ETH pools
       {
@@ -293,8 +292,7 @@ export class V2SubgraphProvider implements IV2SubgraphProvider {
                   ...queryConfig.variables,
                 });
                 metric.putMetric(
-                  `V2SubgraphProvider.chain_${
-                    this.chainId
+                  `V2SubgraphProvider.chain_${this.chainId
                   }.getPools.${queryConfig.name
                     .replace(/\s+/g, '_')
                     .toLowerCase()}.paginate.latency`,
@@ -309,8 +307,7 @@ export class V2SubgraphProvider implements IV2SubgraphProvider {
                 }
 
                 metric.putMetric(
-                  `V2SubgraphProvider.chain_${
-                    this.chainId
+                  `V2SubgraphProvider.chain_${this.chainId
                   }.getPools.${queryConfig.name
                     .replace(/\s+/g, '_')
                     .toLowerCase()}.paginate.pageSize`,
@@ -329,31 +326,27 @@ export class V2SubgraphProvider implements IV2SubgraphProvider {
               }
             );
             log.info(
-              `Fetched ${poolsPage.length} pools for ${queryConfig.name} in ${
-                Date.now() - start
+              `Fetched ${poolsPage.length} pools for ${queryConfig.name} in ${Date.now() - start
               }ms`
             );
           } while (poolsPage.length > 0);
 
           metric.putMetric(
-            `V2SubgraphProvider.chain_${
-              this.chainId
+            `V2SubgraphProvider.chain_${this.chainId
             }.getPools.${queryConfig.name
               .replace(/\s+/g, '_')
               .toLowerCase()}.paginate`,
             totalPages
           );
           metric.putMetric(
-            `V2SubgraphProvider.chain_${
-              this.chainId
+            `V2SubgraphProvider.chain_${this.chainId
             }.getPools.${queryConfig.name
               .replace(/\s+/g, '_')
               .toLowerCase()}.pairs.length`,
             pools.length
           );
           metric.putMetric(
-            `V2SubgraphProvider.chain_${
-              this.chainId
+            `V2SubgraphProvider.chain_${this.chainId
             }.getPools.${queryConfig.name
               .replace(/\s+/g, '_')
               .toLowerCase()}.paginate.retries`,
