@@ -1,4 +1,4 @@
-import { ChainId } from '@uniswap/sdk-core';
+import { ChainId } from '@juiceswapxyz/sdk-core';
 import { FeeAmount } from '@uniswap/v3-sdk';
 import { parseFeeAmount } from '../../../build/main';
 import { getApplicableV3FeeAmounts, unparseFeeAmount } from '../../../src';

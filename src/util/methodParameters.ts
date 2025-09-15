@@ -4,7 +4,7 @@ import {
   SwapRouter as SwapRouter02,
   Trade,
 } from '@uniswap/router-sdk';
-import { ChainId, Currency, TradeType } from '@uniswap/sdk-core';
+import { ChainId, Currency, TradeType } from '@juiceswapxyz/sdk-core';
 import {
   SwapRouter as UniversalRouter,
   UNIVERSAL_ROUTER_ADDRESS,

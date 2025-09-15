@@ -6,7 +6,7 @@ import {
   Percent,
   Token,
   TradeType
-} from '@uniswap/sdk-core';
+} from '@juiceswapxyz/sdk-core';
 import {
   MixedRouteWithValidQuote,
   parseAmount,

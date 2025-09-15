@@ -1,4 +1,4 @@
-import { Token } from '@uniswap/sdk-core';
+import { Token } from '@juiceswapxyz/sdk-core';
 import { SimulationStatus, VIRTUAL_BASE } from '../providers';
 
 export function breakDownTenderlySimulationError(
@@ -20,7 +20,7 @@ export function breakDownTenderlySimulationError(
       case '0x675cae38': // InsufficientToken
         if (
           tokenIn.address.toLowerCase() ===
-            VIRTUAL_BASE.address.toLowerCase() ||
+          VIRTUAL_BASE.address.toLowerCase() ||
           tokenOut.address.toLowerCase() === VIRTUAL_BASE.address.toLowerCase()
         ) {
           // if this is from virtual, we'd guess it's due to slippage too low, although it might be due to something else

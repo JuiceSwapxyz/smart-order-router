@@ -1,5 +1,5 @@
 import { Protocol } from '@uniswap/router-sdk';
-import { ChainId, Currency, Percent } from '@uniswap/sdk-core';
+import { ChainId, Currency, Percent } from '@juiceswapxyz/sdk-core';
 import { Pair } from '@uniswap/v2-sdk';
 import { Pool as V3Pool } from '@uniswap/v3-sdk';
 import { Pool as V4Pool } from '@uniswap/v4-sdk';
@@ -139,9 +139,8 @@ export const routeAmountsToString = (
     const portion = amount.divide(total);
     const percent = new Percent(portion.numerator, portion.denominator);
     /// @dev special case for MIXED routes we want to show user friendly V2+V3 instead
-    return `[${
-      protocol == Protocol.MIXED ? 'V2 + V3 + V4' : protocol
-    }] ${percent.toFixed(2)}% = ${routeToString(route)}`;
+    return `[${protocol == Protocol.MIXED ? 'V2 + V3 + V4' : protocol
+      }] ${percent.toFixed(2)}% = ${routeToString(route)}`;
   });
 
   return _.join(routeStrings, ', ');

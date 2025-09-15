@@ -1,7 +1,7 @@
 import { BigNumber } from '@ethersproject/bignumber';
 import { BaseProvider } from '@ethersproject/providers';
 import { ADDRESS_ZERO, Protocol, SwapRouter } from '@uniswap/router-sdk';
-import { ChainId, Fraction, Percent, TradeType } from '@uniswap/sdk-core';
+import { ChainId, Fraction, Percent, TradeType } from '@juiceswapxyz/sdk-core';
 import { UniversalRouterVersion } from '@uniswap/universal-router-sdk';
 import { Pair } from '@uniswap/v2-sdk';
 import { encodeSqrtRatioX96, FeeAmount, Pool, Pool as V3Pool, Position } from '@uniswap/v3-sdk';

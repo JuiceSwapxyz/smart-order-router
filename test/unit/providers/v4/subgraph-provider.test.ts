@@ -1,4 +1,4 @@
-import { ChainId } from '@uniswap/sdk-core';
+import { ChainId } from '@juiceswapxyz/sdk-core';
 import dotenv from 'dotenv';
 import { GraphQLClient } from 'graphql-request';
 import sinon from 'sinon';
@@ -27,7 +27,7 @@ describe('SubgraphProvider V4', () => {
   let requestStub: sinon.SinonStub;
   let subgraphProvider: V4SubgraphProvider;
 
-  beforeEach(() => {});
+  beforeEach(() => { });
 
   afterEach(() => {
     sinon.restore();
@@ -35,7 +35,7 @@ describe('SubgraphProvider V4', () => {
 
   it('fetches subgraph pools if totalValueLockedETH is above threshold', async () => {
     requestStub = sinon.stub(GraphQLClient.prototype, 'request');
-    subgraphProvider = new V4SubgraphProvider(ChainId.MAINNET, 2, 30000, true, 0.01, 0.001,Number.MAX_VALUE, 'test_url');
+    subgraphProvider = new V4SubgraphProvider(ChainId.MAINNET, 2, 30000, true, 0.01, 0.001, Number.MAX_VALUE, 'test_url');
 
     const highTrackedETHResponse = {
       pools: [constructPool('0xAddress1', '1000000', '1.0')], // High tracked ETH

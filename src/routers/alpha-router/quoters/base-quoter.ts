@@ -1,6 +1,6 @@
 import { BigNumber } from '@ethersproject/bignumber';
 import { Protocol } from '@uniswap/router-sdk';
-import { ChainId, Currency, TradeType } from '@uniswap/sdk-core';
+import { ChainId, Currency, TradeType } from '@juiceswapxyz/sdk-core';
 import _ from 'lodash';
 
 import {
@@ -42,13 +42,13 @@ import { GetQuotesResult, GetRoutesResult } from './model/results';
  */
 export abstract class BaseQuoter<
   CandidatePools extends
-    | SupportedCandidatePools
-    | [
-        V4CandidatePools | undefined,
-        V3CandidatePools | undefined,
-        V2CandidatePools | undefined,
-        CrossLiquidityCandidatePools
-      ],
+  | SupportedCandidatePools
+  | [
+    V4CandidatePools | undefined,
+    V3CandidatePools | undefined,
+    V2CandidatePools | undefined,
+    CrossLiquidityCandidatePools
+  ],
   Route extends SupportedRoutes,
   TCurrency extends Currency
 > {
@@ -223,8 +223,7 @@ export abstract class BaseQuoter<
 
       if (token0Invalid || token1Invalid) {
         log.info(
-          `Dropping pool ${poolToString(pool)} because token is invalid. ${
-            pool.token0.symbol
+          `Dropping pool ${poolToString(pool)} because token is invalid. ${pool.token0.symbol
           }: ${token0Validation}, ${pool.token1.symbol}: ${token1Validation}`
         );
       }

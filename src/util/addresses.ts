@@ -5,7 +5,7 @@ import {
   SWAP_ROUTER_02_ADDRESSES as SWAP_ROUTER_02_ADDRESSES_HELPER,
   Token,
   WETH9 as WETH9_HELPER,
-} from '@uniswap/sdk-core';
+} from '@juiceswapxyz/sdk-core';
 import { FACTORY_ADDRESS } from '@uniswap/v3-sdk';
 
 import { ADDRESS_ZERO } from '@uniswap/router-sdk';
