@@ -1,6 +1,6 @@
 import { BigNumber } from '@ethersproject/bignumber';
 import { ChainId, Token } from '@juiceswapxyz/sdk-core';
-import { computePoolAddress, FeeAmount, Pool } from '@uniswap/v3-sdk';
+import { computePoolAddress, FeeAmount, Pool } from '@juiceswapxyz/v3-sdk';
 import retry, { Options as RetryOptions } from 'async-retry';
 
 import { IUniswapV3PoolState__factory } from '../../types/v3/factories/IUniswapV3PoolState__factory';

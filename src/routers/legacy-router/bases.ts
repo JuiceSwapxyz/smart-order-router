@@ -120,6 +120,9 @@ export const BASES_TO_CHECK_TRADES_AGAINST = (
       WRAPPED_NATIVE_CURRENCY[ChainId.SONEIUM]!,
       USDC_SONEIUM,
     ],
+    [ChainId.CITREA_TESTNET]: [
+      WRAPPED_NATIVE_CURRENCY[ChainId.CITREA_TESTNET]!,
+    ],
   };
 };
 

@@ -1,4 +1,4 @@
-import { Protocol } from '@uniswap/router-sdk';
+import { Protocol } from '@juiceswapxyz/router-sdk';
 import { Token } from '@juiceswapxyz/sdk-core';
 import { SubgraphPool } from '../routers/alpha-router/functions/get-candidate-pools';
 import { log } from '../util';

@@ -1,12 +1,12 @@
 import { BigNumber } from '@ethersproject/bignumber';
-import { partitionMixedRouteByProtocol } from '@uniswap/router-sdk';
+import { partitionMixedRouteByProtocol } from '@juiceswapxyz/router-sdk';
 import { ChainId } from '@juiceswapxyz/sdk-core';
-import { Pair } from '@uniswap/v2-sdk';
-import { Pool as V3Pool } from '@uniswap/v3-sdk';
-import { Pool as V4Pool } from '@uniswap/v4-sdk';
+import { Pair } from '@juiceswapxyz/v2-sdk';
+import { Pool as V3Pool } from '@juiceswapxyz/v3-sdk';
+import { Pool as V4Pool } from '@juiceswapxyz/v4-sdk';
 import JSBI from 'jsbi';
 
-import { TPool } from '@uniswap/router-sdk';
+import { TPool } from '@juiceswapxyz/router-sdk';
 import { WRAPPED_NATIVE_CURRENCY } from '../../../..';
 import { log } from '../../../../util';
 import { CurrencyAmount } from '../../../../util/amounts';

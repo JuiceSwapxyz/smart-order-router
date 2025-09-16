@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { ChainId, Token } from '@juiceswapxyz/sdk-core';
-import { FeeAmount, Pool } from '@uniswap/v3-sdk';
+import { FeeAmount, Pool } from '@juiceswapxyz/v3-sdk';
 import JSBI from 'jsbi';
 import _ from 'lodash';
 
@@ -208,6 +208,9 @@ const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
     USDC_BASE_SEPOLIA,
   ],
   [ChainId.SONEIUM]: [WRAPPED_NATIVE_CURRENCY[ChainId.SONEIUM]!, USDC_SONEIUM],
+  [ChainId.CITREA_TESTNET]: [
+    WRAPPED_NATIVE_CURRENCY[ChainId.CITREA_TESTNET]!,
+  ],
 };
 
 /**

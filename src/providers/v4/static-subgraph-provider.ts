@@ -1,5 +1,5 @@
 import { ChainId, Currency } from '@juiceswapxyz/sdk-core';
-import { Pool } from '@uniswap/v4-sdk';
+import { Pool } from '@juiceswapxyz/v4-sdk';
 import _ from 'lodash';
 
 import {

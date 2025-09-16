@@ -1,4 +1,4 @@
-import { ApprovalTypes } from '@uniswap/router-sdk';
+import { ApprovalTypes } from '@juiceswapxyz/router-sdk';
 import { ChainId, Currency, CurrencyAmount } from '@juiceswapxyz/sdk-core';
 
 import { SwapRouter02__factory } from '../types/other/factories/SwapRouter02__factory';

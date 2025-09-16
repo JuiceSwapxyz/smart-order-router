@@ -8,8 +8,8 @@ import {
   MixedRoute
 } from '../../../src';
 import { JsonRpcProvider } from '@ethersproject/providers';
-import { encodeRouteToPath, Pool } from '@uniswap/v4-sdk';
-import { ADDRESS_ZERO } from '@uniswap/v3-sdk';
+import { encodeRouteToPath, Pool } from '@juiceswapxyz/v4-sdk';
+import { ADDRESS_ZERO } from '@juiceswapxyz/v3-sdk';
 import dotenv from 'dotenv';
 import JSBI from 'jsbi';
 import { ProviderConfig } from '../../../src/providers/provider';

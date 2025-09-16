@@ -805,6 +805,14 @@ export const USDC_SONEIUM = new Token(
   'Soneium Bridged USDC Soneium'
 );
 
+export const CUSD_CITREA_TESTNET = new Token(
+  ChainId.CITREA_TESTNET,
+  '0x2fFC18aC99D367b70dd922771dF8c2074af4aCE0',
+  18,
+  'CUSD',
+  'Citrea Dollar Stablecoin'
+);
+
 export class TokenProvider implements ITokenProvider {
   constructor(
     private chainId: ChainId,
@@ -1114,6 +1122,8 @@ export const USDC_ON = (chainId: ChainId): Token => {
       return USDC_UNICHAIN;
     case ChainId.SONEIUM:
       return USDC_SONEIUM;
+    case ChainId.CITREA_TESTNET:
+      return CUSD_CITREA_TESTNET;
     default:
       throw new Error(`Chain id: ${chainId} not supported`);
   }

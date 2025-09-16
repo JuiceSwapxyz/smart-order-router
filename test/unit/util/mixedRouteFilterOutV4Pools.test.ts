@@ -20,7 +20,7 @@ import { DAI_MAINNET as DAI, USDC_MAINNET as USDC } from '../../../src';
 import {
   mixedRouteFilterOutV4Pools
 } from '../../../src/util/mixedRouteFilterOutV4Pools';
-import { Pool as V4Pool } from '@uniswap/v4-sdk';
+import { Pool as V4Pool } from '@juiceswapxyz/v4-sdk';
 
 describe('mixedRouteFilterOutV4Pools', () => {
   it('filter out v4 pool mixed route', async () => {
