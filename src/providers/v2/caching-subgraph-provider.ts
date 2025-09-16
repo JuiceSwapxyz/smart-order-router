@@ -1,4 +1,4 @@
-import { Protocol } from '@uniswap/router-sdk';
+import { Protocol } from '@juiceswapxyz/router-sdk';
 import { ChainId } from '@juiceswapxyz/sdk-core';
 
 import { CachingSubgraphProvider } from '../caching-subgraph-provider';

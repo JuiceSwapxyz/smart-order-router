@@ -1,5 +1,5 @@
 import { BigNumber } from '@ethersproject/bignumber';
-import { ZERO } from '@uniswap/router-sdk';
+import { ZERO } from '@juiceswapxyz/router-sdk';
 import { Fraction, TradeType } from '@juiceswapxyz/sdk-core';
 
 import {

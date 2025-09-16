@@ -29,8 +29,8 @@ import {
 import { BigNumber } from 'ethers';
 import { getMockedV2PoolProvider, getMockedV3PoolProvider } from '../gas-models/test-util/mocked-dependencies';
 import { ChainId, TradeType } from '@juiceswapxyz/sdk-core';
-import { Trade } from '@uniswap/router-sdk';
-import { Route } from '@uniswap/v3-sdk';
+import { Trade } from '@juiceswapxyz/router-sdk';
+import { Route } from '@juiceswapxyz/v3-sdk';
 import { getPools } from '../gas-models/test-util/helpers';
 import { BaseProvider } from '@ethersproject/providers';
 

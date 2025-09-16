@@ -1,7 +1,7 @@
 import { ID_TO_PROVIDER, UniswapMulticallProvider, V4PoolProvider } from '../../../../src';
 import { ChainId, Currency, Token } from '@juiceswapxyz/sdk-core';
 import { JsonRpcProvider } from '@ethersproject/providers';
-import { ADDRESS_ZERO, FeeAmount } from '@uniswap/v3-sdk';
+import { ADDRESS_ZERO, FeeAmount } from '@juiceswapxyz/v3-sdk';
 import dotenv from 'dotenv';
 
 dotenv.config();

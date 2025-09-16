@@ -1,4 +1,4 @@
-import { Protocol } from '@uniswap/router-sdk';
+import { Protocol } from '@juiceswapxyz/router-sdk';
 import { ChainId, Currency, TradeType } from '@juiceswapxyz/sdk-core';
 import _ from 'lodash';
 
@@ -36,7 +36,7 @@ import {
 } from '../functions/get-candidate-pools';
 import { IGasModel } from '../gas-models';
 
-import { UniversalRouterVersion } from '@uniswap/universal-router-sdk';
+import { UniversalRouterVersion } from '@juiceswapxyz/universal-router-sdk';
 import { mixedRouteFilterOutV4Pools } from '../../../util/mixedRouteFilterOutV4Pools';
 import { BaseQuoter } from './base-quoter';
 import { GetQuotesResult, GetRoutesResult } from './model';

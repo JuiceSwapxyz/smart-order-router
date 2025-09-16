@@ -1,5 +1,5 @@
 import { ChainId, Currency } from '@juiceswapxyz/sdk-core';
-import { DYNAMIC_FEE_FLAG, Pool } from '@uniswap/v4-sdk';
+import { DYNAMIC_FEE_FLAG, Pool } from '@juiceswapxyz/v4-sdk';
 import retry, { Options as RetryOptions } from 'async-retry';
 import { getAddress, log, STATE_VIEW_ADDRESSES } from '../../util';
 import { IMulticallProvider, Result } from '../multicall-provider';

@@ -1,11 +1,11 @@
 import { BigNumber } from '@ethersproject/bignumber';
 import { BaseProvider } from '@ethersproject/providers';
-import { ADDRESS_ZERO, Protocol, SwapRouter } from '@uniswap/router-sdk';
+import { ADDRESS_ZERO, Protocol, SwapRouter } from '@juiceswapxyz/router-sdk';
 import { ChainId, Fraction, Percent, TradeType } from '@juiceswapxyz/sdk-core';
-import { UniversalRouterVersion } from '@uniswap/universal-router-sdk';
-import { Pair } from '@uniswap/v2-sdk';
-import { encodeSqrtRatioX96, FeeAmount, Pool, Pool as V3Pool, Position } from '@uniswap/v3-sdk';
-import { Pool as V4Pool } from '@uniswap/v4-sdk';
+import { UniversalRouterVersion } from '@juiceswapxyz/universal-router-sdk';
+import { Pair } from '@juiceswapxyz/v2-sdk';
+import { encodeSqrtRatioX96, FeeAmount, Pool, Pool as V3Pool, Position } from '@juiceswapxyz/v3-sdk';
+import { Pool as V4Pool } from '@juiceswapxyz/v4-sdk';
 import JSBI from 'jsbi';
 import _ from 'lodash';
 import sinon from 'sinon';

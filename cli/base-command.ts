@@ -5,7 +5,7 @@ import { Command, flags } from '@oclif/command';
 import { ParserOutput } from '@oclif/parser/lib/parse';
 import DEFAULT_TOKEN_LIST from '@uniswap/default-token-list';
 import { ChainId, Currency, CurrencyAmount, Token } from '@juiceswapxyz/sdk-core';
-import { MethodParameters } from '@uniswap/v3-sdk';
+import { MethodParameters } from '@juiceswapxyz/v3-sdk';
 import bunyan, { default as Logger } from 'bunyan';
 import bunyanDebugStream from 'bunyan-debug-stream';
 import _ from 'lodash';

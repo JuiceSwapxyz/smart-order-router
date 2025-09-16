@@ -8,7 +8,7 @@ import {
 } from '../../../../src';
 import { ChainId, Token } from '@juiceswapxyz/sdk-core';
 import { JsonRpcProvider } from '@ethersproject/providers';
-import { FeeAmount } from '@uniswap/v3-sdk';
+import { FeeAmount } from '@juiceswapxyz/v3-sdk';
 
 dotenv.config();
 

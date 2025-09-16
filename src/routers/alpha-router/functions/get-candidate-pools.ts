@@ -1,10 +1,10 @@
-import { ADDRESS_ZERO, Protocol } from '@uniswap/router-sdk';
+import { ADDRESS_ZERO, Protocol } from '@juiceswapxyz/router-sdk';
 import { ChainId, Currency, Token, TradeType } from '@juiceswapxyz/sdk-core';
-import { FeeAmount } from '@uniswap/v3-sdk';
+import { FeeAmount } from '@juiceswapxyz/v3-sdk';
 import _ from 'lodash';
 
-import { isNativeCurrency } from '@uniswap/universal-router-sdk';
-import { DYNAMIC_FEE_FLAG } from '@uniswap/v4-sdk';
+import { isNativeCurrency } from '@juiceswapxyz/universal-router-sdk';
+import { DYNAMIC_FEE_FLAG } from '@juiceswapxyz/v4-sdk';
 import {
   DAI_OPTIMISM_SEPOLIA,
   isPoolFeeDynamic,

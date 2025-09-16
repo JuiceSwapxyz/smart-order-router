@@ -1,4 +1,4 @@
-import { Protocol } from '@uniswap/router-sdk';
+import { Protocol } from '@juiceswapxyz/router-sdk';
 import { SubgraphProviderWithFallBacks } from '../subgraph-provider-with-fallback';
 import { IV3SubgraphProvider, V3SubgraphPool } from './subgraph-provider';
 

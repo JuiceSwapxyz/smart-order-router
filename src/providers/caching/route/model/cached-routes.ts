@@ -1,4 +1,4 @@
-import { Protocol } from '@uniswap/router-sdk';
+import { Protocol } from '@juiceswapxyz/router-sdk';
 import { ChainId, Currency, TradeType } from '@juiceswapxyz/sdk-core';
 import _ from 'lodash';
 
