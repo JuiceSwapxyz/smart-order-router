@@ -1,9 +1,9 @@
 import { BigNumber } from '@ethersproject/bignumber';
 import { ChainId, Currency, Ether, Token } from '@juiceswapxyz/sdk-core';
 import { TokenList } from '@uniswap/token-lists';
-import { Pair } from '@uniswap/v2-sdk';
-import { encodeSqrtRatioX96, FeeAmount, Pool as V3Pool } from '@uniswap/v3-sdk';
-import { Pool as V4Pool } from '@uniswap/v4-sdk';
+import { Pair } from '@juiceswapxyz/v2-sdk';
+import { encodeSqrtRatioX96, FeeAmount, Pool as V3Pool } from '@juiceswapxyz/v3-sdk';
+import { Pool as V4Pool } from '@juiceswapxyz/v4-sdk';
 import _ from 'lodash';
 import {
   AlphaRouterConfig,
@@ -22,7 +22,7 @@ import {
   WBTC_MAINNET as WBTC,
   WRAPPED_NATIVE_CURRENCY,
 } from '../../src';
-import { ADDRESS_ZERO } from '@uniswap/router-sdk';
+import { ADDRESS_ZERO } from '@juiceswapxyz/router-sdk';
 
 export const mockBlock = 123456789;
 export const mockGasPriceWeiBN = BigNumber.from(100000);

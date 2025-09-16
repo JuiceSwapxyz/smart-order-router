@@ -1,7 +1,7 @@
 import { BigNumber } from '@ethersproject/bignumber';
 import { BaseProvider } from '@ethersproject/providers';
 import { ChainId, Percent, Price } from '@juiceswapxyz/sdk-core';
-import { Pool } from '@uniswap/v3-sdk';
+import { Pool } from '@juiceswapxyz/v3-sdk';
 import { CurrencyAmount, log, WRAPPED_NATIVE_CURRENCY } from '../../../util';
 import { calculateL1GasFeesHelper } from '../../../util/gas-factory-helpers';
 import { V3RouteWithValidQuote, V4RouteWithValidQuote } from '../entities';

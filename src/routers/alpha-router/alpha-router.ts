@@ -7,7 +7,7 @@ import {
   TPool as MixedPool,
   Trade,
   ZERO,
-} from '@uniswap/router-sdk';
+} from '@juiceswapxyz/router-sdk';
 import {
   ChainId,
   Currency,
@@ -16,16 +16,16 @@ import {
   TradeType,
 } from '@juiceswapxyz/sdk-core';
 import { TokenList } from '@uniswap/token-lists';
-import { UniversalRouterVersion } from '@uniswap/universal-router-sdk';
-import { Pair as V2Pool } from '@uniswap/v2-sdk';
+import { UniversalRouterVersion } from '@juiceswapxyz/universal-router-sdk';
+import { Pair as V2Pool } from '@juiceswapxyz/v2-sdk';
 import {
   Pool,
   Pool as V3Pool,
   Position,
   SqrtPriceMath,
   TickMath,
-} from '@uniswap/v3-sdk';
-import { Pool as V4Pool } from '@uniswap/v4-sdk';
+} from '@juiceswapxyz/v3-sdk';
+import { Pool as V4Pool } from '@juiceswapxyz/v4-sdk';
 import retry from 'async-retry';
 import JSBI from 'jsbi';
 import _ from 'lodash';

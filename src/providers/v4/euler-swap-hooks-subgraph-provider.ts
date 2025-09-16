@@ -1,4 +1,4 @@
-import { Protocol } from '@uniswap/router-sdk';
+import { Protocol } from '@juiceswapxyz/router-sdk';
 import { ChainId } from '@juiceswapxyz/sdk-core';
 import retry from 'async-retry';
 import Timeout from 'await-timeout';

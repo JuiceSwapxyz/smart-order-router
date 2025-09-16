@@ -1,8 +1,8 @@
 import { BigNumber } from '@ethersproject/bignumber';
 import { Logger } from '@ethersproject/logger';
-import { SwapRouter, Trade } from '@uniswap/router-sdk';
+import { SwapRouter, Trade } from '@juiceswapxyz/router-sdk';
 import { ChainId, Currency, Token, TradeType } from '@juiceswapxyz/sdk-core';
-import { FeeAmount, MethodParameters, Pool, Route } from '@uniswap/v3-sdk';
+import { FeeAmount, MethodParameters, Pool, Route } from '@juiceswapxyz/v3-sdk';
 import _ from 'lodash';
 
 import { IOnChainQuoteProvider, RouteWithQuotes } from '../../providers';

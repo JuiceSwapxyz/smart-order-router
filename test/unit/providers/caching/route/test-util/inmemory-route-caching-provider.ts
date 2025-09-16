@@ -1,4 +1,4 @@
-import { Protocol } from '@uniswap/router-sdk';
+import { Protocol } from '@juiceswapxyz/router-sdk';
 import { ChainId, Currency, CurrencyAmount, TradeType } from '@juiceswapxyz/sdk-core';
 import { CachedRoutes, CacheMode, IRouteCachingProvider } from '../../../../../../src';
 

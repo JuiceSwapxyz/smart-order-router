@@ -5,7 +5,7 @@ import {
   Protocol,
   TPool,
   Trade,
-} from '@uniswap/router-sdk';
+} from '@juiceswapxyz/router-sdk';
 import {
   Currency,
   Fraction,
@@ -16,16 +16,16 @@ import {
 import {
   SwapOptions as UniversalRouterSwapOptions,
   UniversalRouterVersion,
-} from '@uniswap/universal-router-sdk';
-import { Pair, Route as V2RouteRaw } from '@uniswap/v2-sdk';
+} from '@juiceswapxyz/universal-router-sdk';
+import { Pair, Route as V2RouteRaw } from '@juiceswapxyz/v2-sdk';
 import {
   MethodParameters as SDKMethodParameters,
   Pool,
   Pool as V3Pool,
   Position,
   Route as V3RouteRaw,
-} from '@uniswap/v3-sdk';
-import { Pool as V4Pool, Route as V4RouteRaw } from '@uniswap/v4-sdk';
+} from '@juiceswapxyz/v3-sdk';
+import { Pool as V4Pool, Route as V4RouteRaw } from '@juiceswapxyz/v4-sdk';
 
 import { SimulationStatus } from '../providers';
 import { CurrencyAmount } from '../util/amounts';

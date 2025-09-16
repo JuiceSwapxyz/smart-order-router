@@ -1,4 +1,4 @@
-import { Protocol } from '@uniswap/router-sdk';
+import { Protocol } from '@juiceswapxyz/router-sdk';
 import { ChainId, Currency, Token } from '@juiceswapxyz/sdk-core';
 
 import { SubgraphPool } from '../routers/alpha-router/functions/get-candidate-pools';
@@ -185,6 +185,10 @@ export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
     nativeOnChain(ChainId.SONEIUM),
     WRAPPED_NATIVE_CURRENCY[ChainId.SONEIUM]!,
     USDC_SONEIUM,
+  ],
+  [ChainId.CITREA_TESTNET]: [
+    nativeOnChain(ChainId.CITREA_TESTNET),
+    WRAPPED_NATIVE_CURRENCY[ChainId.CITREA_TESTNET]!,
   ],
 };
 

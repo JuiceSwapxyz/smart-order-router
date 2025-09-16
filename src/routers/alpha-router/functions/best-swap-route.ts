@@ -1,5 +1,5 @@
 import { BigNumber } from '@ethersproject/bignumber';
-import { Protocol } from '@uniswap/router-sdk';
+import { Protocol } from '@juiceswapxyz/router-sdk';
 import { ChainId, TradeType } from '@juiceswapxyz/sdk-core';
 import JSBI from 'jsbi';
 import _ from 'lodash';

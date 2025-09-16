@@ -1,4 +1,4 @@
-import { Protocol } from '@uniswap/router-sdk';
+import { Protocol } from '@juiceswapxyz/router-sdk';
 import { ChainId, Currency } from '@juiceswapxyz/sdk-core';
 
 import { ProviderConfig } from '../provider';
