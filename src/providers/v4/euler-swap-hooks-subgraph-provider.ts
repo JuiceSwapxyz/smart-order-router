@@ -140,7 +140,7 @@ export class EulerSwapHooksSubgraphProvider implements ISubgraphProvider {
       },
       {
         retries: this.retries,
-        onRetry: (err, retry) => {
+        onRetry: (err: Error, retry) => {
           retries += 1;
           if (
             this.rollback &&

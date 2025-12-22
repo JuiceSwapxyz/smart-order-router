@@ -390,7 +390,7 @@ export class V2SubgraphProvider implements IV2SubgraphProvider {
       },
       {
         retries: this.retries,
-        onRetry: (err, retry) => {
+        onRetry: (err: Error, retry) => {
           outerRetries += 1;
           if (
             this.rollback &&

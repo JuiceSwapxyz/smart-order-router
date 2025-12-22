@@ -284,7 +284,7 @@ export abstract class SubgraphProvider<
       },
       {
         retries: this.retries,
-        onRetry: (err, retry) => {
+        onRetry: (err: Error, retry) => {
           retries += 1;
           if (
             this.rollback &&
