@@ -29,6 +29,7 @@ import {
   WLD_WORLDCHAIN,
   WMATIC_POLYGON,
   WMATIC_POLYGON_MUMBAI,
+  SVJUSD_CITREA_TESTNET,
 } from '../../providers/token-provider';
 import { WRAPPED_NATIVE_CURRENCY } from '../../util/chains';
 
@@ -122,6 +123,7 @@ export const BASES_TO_CHECK_TRADES_AGAINST = (
     ],
     [ChainId.CITREA_TESTNET]: [
       WRAPPED_NATIVE_CURRENCY[ChainId.CITREA_TESTNET]!,
+      SVJUSD_CITREA_TESTNET,
     ],
   };
 };

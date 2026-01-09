@@ -1,6 +1,7 @@
 import { Interface } from '@ethersproject/abi';
 import { BigNumber } from '@ethersproject/bignumber';
 import { parseBytes32String } from '@ethersproject/strings';
+import { ADDRESS as JUICEDOLLAR_ADDRESSES } from '@juicedollar/jusd';
 import { ChainId, Token } from '@juiceswapxyz/sdk-core';
 import _ from 'lodash';
 
@@ -805,12 +806,23 @@ export const USDC_SONEIUM = new Token(
   'Soneium Bridged USDC Soneium'
 );
 
-export const CUSD_CITREA_TESTNET = new Token(
+// Citrea Testnet JuiceDollar tokens (addresses imported from @juicedollar/jusd)
+const CITREA_JUICEDOLLAR = JUICEDOLLAR_ADDRESSES[ChainId.CITREA_TESTNET]!;
+
+export const JUSD_CITREA_TESTNET = new Token(
   ChainId.CITREA_TESTNET,
-  '0x2fFC18aC99D367b70dd922771dF8c2074af4aCE0',
+  CITREA_JUICEDOLLAR.juiceDollar,
   18,
-  'CUSD',
-  'Citrea Dollar Stablecoin'
+  'JUSD',
+  'Juice Dollar'
+);
+
+export const SVJUSD_CITREA_TESTNET = new Token(
+  ChainId.CITREA_TESTNET,
+  CITREA_JUICEDOLLAR.savingsVaultJUSD,
+  18,
+  'svJUSD',
+  'Savings Vault JUSD'
 );
 
 export class TokenProvider implements ITokenProvider {
@@ -1123,7 +1135,7 @@ export const USDC_ON = (chainId: ChainId): Token => {
     case ChainId.SONEIUM:
       return USDC_SONEIUM;
     case ChainId.CITREA_TESTNET:
-      return CUSD_CITREA_TESTNET;
+      return JUSD_CITREA_TESTNET;
     default:
       throw new Error(`Chain id: ${chainId} not supported`);
   }

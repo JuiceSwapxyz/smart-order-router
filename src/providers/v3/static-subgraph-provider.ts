@@ -74,6 +74,7 @@ import {
   WMATIC_POLYGON_MUMBAI,
   WSTETH_MAINNET,
   WXDAI_GNOSIS,
+  SVJUSD_CITREA_TESTNET,
 } from '../token-provider';
 
 import { IV3PoolProvider } from './pool-provider';
@@ -210,6 +211,7 @@ const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
   [ChainId.SONEIUM]: [WRAPPED_NATIVE_CURRENCY[ChainId.SONEIUM]!, USDC_SONEIUM],
   [ChainId.CITREA_TESTNET]: [
     WRAPPED_NATIVE_CURRENCY[ChainId.CITREA_TESTNET]!,
+    SVJUSD_CITREA_TESTNET,
   ],
 };
 

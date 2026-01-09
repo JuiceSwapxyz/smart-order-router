@@ -52,6 +52,7 @@ import {
   WLD_WORLDCHAIN,
   WMATIC_POLYGON,
   WSTETH_MAINNET,
+  SVJUSD_CITREA_TESTNET,
 } from '../token-provider';
 
 import { IV2SubgraphProvider, V2SubgraphPool } from './subgraph-provider';
@@ -155,6 +156,7 @@ const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
   [ChainId.SONEIUM]: [WRAPPED_NATIVE_CURRENCY[ChainId.SONEIUM]!, USDC_SONEIUM],
   [ChainId.CITREA_TESTNET]: [
     WRAPPED_NATIVE_CURRENCY[ChainId.CITREA_TESTNET]!,
+    SVJUSD_CITREA_TESTNET,
   ],
 };
 

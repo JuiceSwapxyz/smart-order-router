@@ -72,6 +72,7 @@ import {
   WMATIC_POLYGON_MUMBAI,
   WSTETH_MAINNET,
   WXDAI_GNOSIS,
+  SVJUSD_CITREA_TESTNET,
 } from '../../../providers/token-provider';
 import {
   IV2PoolProvider,
@@ -264,6 +265,10 @@ const baseTokensByChain: { [chainId in ChainId]?: Token[] } = {
     USDC_UNICHAIN,
   ],
   [ChainId.SONEIUM]: [USDC_SONEIUM, WRAPPED_NATIVE_CURRENCY[ChainId.SONEIUM]!],
+  [ChainId.CITREA_TESTNET]: [
+    SVJUSD_CITREA_TESTNET, // Primary routing hub for JuiceDollar
+    WRAPPED_NATIVE_CURRENCY[ChainId.CITREA_TESTNET]!,
+  ],
 };
 
 const excludedV3PoolIds = new Set([
