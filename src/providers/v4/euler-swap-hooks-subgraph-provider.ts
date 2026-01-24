@@ -1,5 +1,5 @@
-import { Protocol } from '@uniswap/router-sdk';
-import { ChainId } from '@uniswap/sdk-core';
+import { Protocol } from '@juiceswapxyz/router-sdk';
+import { ChainId } from '@juiceswapxyz/sdk-core';
 import retry from 'async-retry';
 import Timeout from 'await-timeout';
 import { gql, GraphQLClient } from 'graphql-request';
@@ -69,10 +69,9 @@ export class EulerSwapHooksSubgraphProvider implements ISubgraphProvider {
     let hooks: EulerSwapHooks[] = [];
 
     log.info(
-      `Getting hooks from the subgraph with page size ${PAGE_SIZE}${
-        providerConfig?.blockNumber
-          ? ` as of block ${providerConfig?.blockNumber}`
-          : ''
+      `Getting hooks from the subgraph with page size ${PAGE_SIZE}${providerConfig?.blockNumber
+        ? ` as of block ${providerConfig?.blockNumber}`
+        : ''
       }.`
     );
 
@@ -141,7 +140,7 @@ export class EulerSwapHooksSubgraphProvider implements ISubgraphProvider {
       },
       {
         retries: this.retries,
-        onRetry: (err, retry) => {
+        onRetry: (err: Error, retry) => {
           retries += 1;
           if (
             this.rollback &&
@@ -225,10 +224,9 @@ export class EulerSwapHooksSubgraphProvider implements ISubgraphProvider {
     let pool: V4SubgraphPool | undefined = undefined;
 
     log.info(
-      `Getting pool by hook from the subgraph with page size ${PAGE_SIZE}${
-        providerConfig?.blockNumber
-          ? ` as of block ${providerConfig?.blockNumber}`
-          : ''
+      `Getting pool by hook from the subgraph with page size ${PAGE_SIZE}${providerConfig?.blockNumber
+        ? ` as of block ${providerConfig?.blockNumber}`
+        : ''
       }.`
     );
 

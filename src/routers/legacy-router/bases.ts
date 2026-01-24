@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
-import { ChainId, Token } from '@uniswap/sdk-core';
+import { ChainId, Token } from '@juiceswapxyz/sdk-core';
 
 import {
   BTC_BNB,
@@ -119,6 +119,9 @@ export const BASES_TO_CHECK_TRADES_AGAINST = (
     [ChainId.SONEIUM]: [
       WRAPPED_NATIVE_CURRENCY[ChainId.SONEIUM]!,
       USDC_SONEIUM,
+    ],
+    [ChainId.CITREA_TESTNET]: [
+      WRAPPED_NATIVE_CURRENCY[ChainId.CITREA_TESTNET]!,
     ],
   };
 };

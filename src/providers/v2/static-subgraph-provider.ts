@@ -1,5 +1,5 @@
-import { ChainId, Token } from '@uniswap/sdk-core';
-import { Pair } from '@uniswap/v2-sdk';
+import { ChainId, Token } from '@juiceswapxyz/sdk-core';
+import { Pair } from '@juiceswapxyz/v2-sdk';
 import _ from 'lodash';
 
 import { WRAPPED_NATIVE_CURRENCY } from '../../util/chains';
@@ -153,6 +153,9 @@ const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
     USDC_BASE_SEPOLIA,
   ],
   [ChainId.SONEIUM]: [WRAPPED_NATIVE_CURRENCY[ChainId.SONEIUM]!, USDC_SONEIUM],
+  [ChainId.CITREA_TESTNET]: [
+    WRAPPED_NATIVE_CURRENCY[ChainId.CITREA_TESTNET]!,
+  ],
 };
 
 /**
@@ -168,7 +171,7 @@ const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
  * @class StaticV2SubgraphProvider
  */
 export class StaticV2SubgraphProvider implements IV2SubgraphProvider {
-  constructor(private chainId: ChainId) {}
+  constructor(private chainId: ChainId) { }
 
   public async getPools(
     tokenIn?: Token,

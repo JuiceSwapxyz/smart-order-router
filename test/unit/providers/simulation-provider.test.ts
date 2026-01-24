@@ -1,6 +1,6 @@
 import { JsonRpcProvider } from '@ethersproject/providers';
-import { Trade } from '@uniswap/router-sdk';
-import { ChainId, Percent, TradeType } from '@uniswap/sdk-core';
+import { Trade } from '@juiceswapxyz/router-sdk';
+import { ChainId, Percent, TradeType } from '@juiceswapxyz/sdk-core';
 import { BigNumber } from 'ethers';
 import sinon from 'sinon';
 import {
@@ -26,7 +26,7 @@ import {
 } from '../../../src/providers/portion-provider';
 import { Erc20 } from '../../../src/types/other/Erc20';
 import { Permit2 } from '../../../src/types/other/Permit2';
-import { UniversalRouterVersion } from '@uniswap/universal-router-sdk';
+import { UniversalRouterVersion } from '@juiceswapxyz/universal-router-sdk';
 
 let tokenContract: Erc20;
 let permit2Contract: Permit2;
@@ -210,7 +210,7 @@ describe('Fallback Tenderly simulator', () => {
         return BigNumber.from(0);
       },
     } as unknown as Erc20;
-    const ethInputAmount =  CurrencyAmount.fromRawAmount(nativeOnChain(1), 300)
+    const ethInputAmount = CurrencyAmount.fromRawAmount(nativeOnChain(1), 300)
     const swapRouteWithGasEstimate = await simulator.simulate(
       fromAddress,
       swapOptions,
@@ -454,7 +454,7 @@ describe('Eth estimate gas simulator', () => {
     sinon
       .stub(provider, <any>'getBalance')
       .resolves(BigNumber.from(325));
-    sinon.replace(provider, 'estimateGas', () => {throw new Error()})
+    sinon.replace(provider, 'estimateGas', () => { throw new Error() })
     const swapRouteWithGasEstimate = await simulator.simulate(
       fromAddress,
       swapOptions,

@@ -7,8 +7,8 @@ import {
   shouldWipeoutCachedRoutes,
   USDC_MAINNET
 } from '../../../../../src';
-import { Protocol } from '@uniswap/router-sdk';
-import { ChainId, TradeType } from '@uniswap/sdk-core';
+import { Protocol } from '@juiceswapxyz/router-sdk';
+import { ChainId, TradeType } from '@juiceswapxyz/sdk-core';
 import {
   USDC_DAI,
   USDC_DAI_LOW,

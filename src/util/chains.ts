@@ -4,7 +4,8 @@ import {
   Ether,
   NativeCurrency,
   Token,
-} from '@uniswap/sdk-core';
+  WETH9,
+} from '@juiceswapxyz/sdk-core';
 
 // WIP: Gnosis, Moonbeam
 export const SUPPORTED_CHAINS: ChainId[] = [
@@ -32,7 +33,7 @@ export const SUPPORTED_CHAINS: ChainId[] = [
   ChainId.MONAD_TESTNET,
   ChainId.BASE_SEPOLIA,
   ChainId.SONEIUM,
-  // Gnosis and Moonbeam don't yet have contracts deployed yet
+  ChainId.CITREA_TESTNET
 ];
 
 export const V2_SUPPORTED = [
@@ -169,6 +170,8 @@ export const ID_TO_CHAIN_ID = (id: number): ChainId => {
       return ChainId.UNICHAIN;
     case 1868:
       return ChainId.SONEIUM;
+    case 5115:
+      return ChainId.CITREA_TESTNET;
     default:
       throw new Error(`Unknown chain id: ${id}`);
   }
@@ -203,6 +206,7 @@ export enum ChainName {
   UNICHAIN = 'unichain-mainnet',
   MONAD_TESTNET = 'monad-testnet',
   SONEIUM = 'soneium-mainnet',
+  CITREA_TESTNET = 'citrea-testnet',
 }
 
 export enum NativeCurrencyName {
@@ -215,6 +219,7 @@ export enum NativeCurrencyName {
   BNB = 'BNB',
   AVALANCHE = 'AVAX',
   MONAD = 'MON',
+  CITREA = 'cBTC',
 }
 
 export const NATIVE_NAMES_BY_ID: { [chainId: number]: string[] } = {
@@ -328,6 +333,11 @@ export const NATIVE_NAMES_BY_ID: { [chainId: number]: string[] } = {
     'ETHER',
     '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
   ],
+  [ChainId.CITREA_TESTNET]: [
+    'cBTC',
+    'CITREA',
+    '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
+  ],
 };
 
 export const NATIVE_CURRENCY: { [chainId: number]: NativeCurrencyName } = {
@@ -358,6 +368,7 @@ export const NATIVE_CURRENCY: { [chainId: number]: NativeCurrencyName } = {
   [ChainId.BASE_SEPOLIA]: NativeCurrencyName.ETHER,
   [ChainId.UNICHAIN]: NativeCurrencyName.ETHER,
   [ChainId.SONEIUM]: NativeCurrencyName.ETHER,
+  [ChainId.CITREA_TESTNET]: NativeCurrencyName.CITREA,
 };
 
 export const ID_TO_NETWORK_NAME = (id: number): ChainName => {
@@ -418,6 +429,8 @@ export const ID_TO_NETWORK_NAME = (id: number): ChainName => {
       return ChainName.MONAD_TESTNET;
     case 1868:
       return ChainName.SONEIUM;
+    case 5115:
+      return ChainName.CITREA_TESTNET;
     default:
       throw new Error(`Unknown chain id: ${id}`);
   }
@@ -479,6 +492,8 @@ export const ID_TO_PROVIDER = (id: ChainId): string => {
       return process.env.JSON_RPC_PROVIDER_UNICHAIN!;
     case ChainId.SONEIUM:
       return process.env.JSON_RPC_PROVIDER_SONEIUM!;
+    case ChainId.CITREA_TESTNET:
+      return process.env.JSON_RPC_PROVIDER_CITREA_TESTNET!;
     default:
       throw new Error(`Chain id: ${id} not supported`);
   }
@@ -697,7 +712,8 @@ export const WRAPPED_NATIVE_CURRENCY: { [chainId in ChainId]: Token } = {
     'WETH',
     'Wrapped Ether'
   ),
-};
+  [ChainId.CITREA_TESTNET]: WETH9[ChainId.CITREA_TESTNET]!,
+}
 
 function isMatic(
   chainId: number

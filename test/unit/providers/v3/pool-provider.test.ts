@@ -6,9 +6,9 @@ import {
   V3PoolProvider,
   WRAPPED_NATIVE_CURRENCY,
 } from '../../../../src';
-import { ChainId, Token } from '@uniswap/sdk-core';
+import { ChainId, Token } from '@juiceswapxyz/sdk-core';
 import { JsonRpcProvider } from '@ethersproject/providers';
-import { FeeAmount } from '@uniswap/v3-sdk';
+import { FeeAmount } from '@juiceswapxyz/v3-sdk';
 
 dotenv.config();
 
@@ -20,7 +20,7 @@ describe('PoolProvider', () => {
 
     const poolProvider = new V3PoolProvider(ChainId.MAINNET, multicallProvider);
     const currencyPairs: Array<[Token, Token, number]> = new Array([USDC_MAINNET, WRAPPED_NATIVE_CURRENCY[ChainId.MAINNET], FeeAmount.LOW]);
-    const poolAccessor = await poolProvider.getPools(currencyPairs, { blockNumber: 20567408});
+    const poolAccessor = await poolProvider.getPools(currencyPairs, { blockNumber: 20567408 });
     poolAccessor.getAllPools().forEach(pool => {
       expect(pool.liquidity.toString()).toEqual('7978446294123224544');
       expect(pool.tickCurrent).toEqual(197428);

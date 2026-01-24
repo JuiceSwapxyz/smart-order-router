@@ -1,6 +1,6 @@
 import { BigNumber } from '@ethersproject/bignumber';
-import { ChainId, Token } from '@uniswap/sdk-core';
-import { computePoolAddress, FeeAmount, Pool } from '@uniswap/v3-sdk';
+import { ChainId, Token } from '@juiceswapxyz/sdk-core';
+import { computePoolAddress, FeeAmount, Pool } from '@juiceswapxyz/v3-sdk';
 import retry, { Options as RetryOptions } from 'async-retry';
 
 import { IUniswapV3PoolState__factory } from '../../types/v3/factories/IUniswapV3PoolState__factory';
@@ -72,8 +72,7 @@ export class V3PoolProvider
     V3ILiquidity,
     V3PoolAccessor
   >
-  implements IV3PoolProvider
-{
+  implements IV3PoolProvider {
   // Computing pool addresses is slow as it requires hashing, encoding etc.
   // Addresses never change so can always be cached.
   private POOL_ADDRESS_CACHE: { [key: string]: string } = {};

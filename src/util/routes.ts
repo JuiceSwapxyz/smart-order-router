@@ -1,8 +1,8 @@
-import { Protocol } from '@uniswap/router-sdk';
-import { ChainId, Currency, Percent } from '@uniswap/sdk-core';
-import { Pair } from '@uniswap/v2-sdk';
-import { Pool as V3Pool } from '@uniswap/v3-sdk';
-import { Pool as V4Pool } from '@uniswap/v4-sdk';
+import { Protocol } from '@juiceswapxyz/router-sdk';
+import { ChainId, Currency, Percent } from '@juiceswapxyz/sdk-core';
+import { Pair } from '@juiceswapxyz/v2-sdk';
+import { Pool as V3Pool } from '@juiceswapxyz/v3-sdk';
+import { Pool as V4Pool } from '@juiceswapxyz/v4-sdk';
 import _ from 'lodash';
 
 import {
@@ -13,7 +13,7 @@ import { MixedRoute, SupportedRoutes } from '../routers/router';
 
 import { V3_CORE_FACTORY_ADDRESSES } from './addresses';
 
-import { TPool } from '@uniswap/router-sdk';
+import { TPool } from '@juiceswapxyz/router-sdk';
 import { CurrencyAmount, V4_ETH_WETH_FAKE_POOL } from '.';
 import { CachedRoutes } from '../providers';
 
@@ -139,9 +139,8 @@ export const routeAmountsToString = (
     const portion = amount.divide(total);
     const percent = new Percent(portion.numerator, portion.denominator);
     /// @dev special case for MIXED routes we want to show user friendly V2+V3 instead
-    return `[${
-      protocol == Protocol.MIXED ? 'V2 + V3 + V4' : protocol
-    }] ${percent.toFixed(2)}% = ${routeToString(route)}`;
+    return `[${protocol == Protocol.MIXED ? 'V2 + V3 + V4' : protocol
+      }] ${percent.toFixed(2)}% = ${routeToString(route)}`;
   });
 
   return _.join(routeStrings, ', ');

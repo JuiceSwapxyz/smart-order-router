@@ -3,12 +3,13 @@ import {
   ChainId,
   CurrencyAmount as CurrencyAmountRaw,
   Token,
-} from '@uniswap/sdk-core';
-import { Pair } from '@uniswap/v2-sdk';
-import { Pool } from '@uniswap/v3-sdk';
+} from '@juiceswapxyz/sdk-core';
+import { Pair } from '@juiceswapxyz/v2-sdk';
+import { Pool } from '@juiceswapxyz/v3-sdk';
 
 import { ProviderConfig } from '../../../providers/provider';
 import {
+  CUSD_CITREA_TESTNET,
   CUSD_CELO,
   CUSD_CELO_ALFAJORES,
   DAI_ARBITRUM,
@@ -135,6 +136,7 @@ export const usdGasTokensByChain: { [chainId in ChainId]?: Token[] } = {
   [ChainId.BASE_SEPOLIA]: [USDC_BASE_SEPOLIA],
   [ChainId.UNICHAIN]: [DAI_UNICHAIN, USDC_UNICHAIN],
   [ChainId.SONEIUM]: [USDC_SONEIUM],
+  [ChainId.CITREA_TESTNET]: [CUSD_CITREA_TESTNET],
 };
 
 export type L1ToL2GasCosts = {

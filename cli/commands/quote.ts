@@ -1,7 +1,7 @@
 import { Logger } from '@ethersproject/logger';
 import { flags } from '@oclif/command';
-import { Protocol } from '@uniswap/router-sdk';
-import { Currency, Percent, TradeType } from '@uniswap/sdk-core';
+import { Protocol } from '@juiceswapxyz/router-sdk';
+import { Currency, Percent, TradeType } from '@juiceswapxyz/sdk-core';
 import dotenv from 'dotenv';
 import _ from 'lodash';
 
@@ -15,7 +15,7 @@ import {
 } from '../../src';
 import { NATIVE_NAMES_BY_ID, TO_PROTOCOL } from '../../src/util';
 import { BaseCommand } from '../base-command';
-import { UniversalRouterVersion } from '@uniswap/universal-router-sdk';
+import { UniversalRouterVersion } from '@juiceswapxyz/universal-router-sdk';
 
 dotenv.config();
 
@@ -215,8 +215,7 @@ export class Quote extends BaseCommand {
 
     if (!swapRoutes) {
       log.error(
-        `Could not find route. ${
-          debug ? '' : 'Run in debug mode for more info'
+        `Could not find route. ${debug ? '' : 'Run in debug mode for more info'
         }.`
       );
       return;

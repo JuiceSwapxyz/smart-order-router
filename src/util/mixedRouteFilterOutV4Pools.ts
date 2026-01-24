@@ -1,4 +1,4 @@
-import { Pool as V4Pool } from '@uniswap/v4-sdk';
+import { Pool as V4Pool } from '@juiceswapxyz/v4-sdk';
 import { MixedRoute } from '../routers';
 
 export function mixedRouteContainsV4Pools(route: MixedRoute): boolean {

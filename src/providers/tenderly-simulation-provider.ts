@@ -4,8 +4,8 @@ import https from 'https';
 import { MaxUint256 } from '@ethersproject/constants';
 import { JsonRpcProvider } from '@ethersproject/providers';
 import { permit2Address } from '@uniswap/permit2-sdk';
-import { ChainId } from '@uniswap/sdk-core';
-import { UNIVERSAL_ROUTER_ADDRESS } from '@uniswap/universal-router-sdk';
+import { ChainId } from '@juiceswapxyz/sdk-core';
+import { UNIVERSAL_ROUTER_ADDRESS } from '@juiceswapxyz/universal-router-sdk';
 import axios, { AxiosRequestConfig } from 'axios';
 import { BigNumber } from 'ethers/lib/ethers';
 

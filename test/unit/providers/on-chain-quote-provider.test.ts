@@ -1,4 +1,4 @@
-import { ChainId, Token } from '@uniswap/sdk-core';
+import { ChainId, Token } from '@juiceswapxyz/sdk-core';
 import {
   CurrencyAmount,
   ID_TO_PROVIDER,
@@ -8,8 +8,8 @@ import {
   MixedRoute
 } from '../../../src';
 import { JsonRpcProvider } from '@ethersproject/providers';
-import { encodeRouteToPath, Pool } from '@uniswap/v4-sdk';
-import { ADDRESS_ZERO } from '@uniswap/v3-sdk';
+import { encodeRouteToPath, Pool } from '@juiceswapxyz/v4-sdk';
+import { ADDRESS_ZERO } from '@juiceswapxyz/v3-sdk';
 import dotenv from 'dotenv';
 import JSBI from 'jsbi';
 import { ProviderConfig } from '../../../src/providers/provider';
@@ -38,15 +38,15 @@ describe('on chain quote provider', () => {
     ]
     const v4Routes = [
       new V4Route(
-  [new Pool(
+        [new Pool(
           mockB,
           mockA,
           3000,
           60,
           ADDRESS_ZERO,
-    79186511702831612165570076748,
-    100000000000000000000,
-    -11,
+          79186511702831612165570076748,
+          100000000000000000000,
+          -11,
         )],
         mockA,
         mockB,
