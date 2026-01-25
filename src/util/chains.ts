@@ -713,6 +713,7 @@ export const WRAPPED_NATIVE_CURRENCY: { [chainId in ChainId]: Token } = {
     'Wrapped Ether'
   ),
   [ChainId.CITREA_TESTNET]: WETH9[ChainId.CITREA_TESTNET]!,
+  [ChainId.CITREA_MAINNET]: WETH9[ChainId.CITREA_MAINNET]!,
 }
 
 function isMatic(

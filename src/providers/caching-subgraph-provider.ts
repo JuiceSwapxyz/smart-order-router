@@ -190,6 +190,10 @@ export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
     nativeOnChain(ChainId.CITREA_TESTNET),
     WRAPPED_NATIVE_CURRENCY[ChainId.CITREA_TESTNET]!,
   ],
+  [ChainId.CITREA_MAINNET]: [
+    nativeOnChain(ChainId.CITREA_MAINNET),
+    WRAPPED_NATIVE_CURRENCY[ChainId.CITREA_MAINNET]!,
+  ],
 };
 
 export interface IV3SubgraphProvider {
