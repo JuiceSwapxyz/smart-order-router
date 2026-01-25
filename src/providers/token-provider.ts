@@ -822,6 +822,14 @@ export const JUSD_CITREA_TESTNET = new Token(
   'Juice Dollar Stablecoin'
 );
 
+export const SV_JUSD_CITREA_TESTNET = new Token(
+  ChainId.CITREA_TESTNET,
+  ADDRESS[ChainId.CITREA_TESTNET]!.savingsVaultJUSD,
+  18,
+  'SV_JUSD',
+  'SV Juice Dollar Stablecoin'
+);
+
 export class TokenProvider implements ITokenProvider {
   constructor(
     private chainId: ChainId,
