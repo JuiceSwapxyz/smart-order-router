@@ -9,7 +9,6 @@ import { Pool } from '@juiceswapxyz/v3-sdk';
 
 import { ProviderConfig } from '../../../providers/provider';
 import {
-  CUSD_CITREA_TESTNET,
   CUSD_CELO,
   CUSD_CELO_ALFAJORES,
   DAI_ARBITRUM,
@@ -66,6 +65,7 @@ import {
   USDT_OPTIMISM_GOERLI,
   USDT_OPTIMISM_SEPOLIA,
   WBTC_GOERLI,
+  JUSD_CITREA_TESTNET,
 } from '../../../providers/token-provider';
 import { IV2PoolProvider } from '../../../providers/v2/pool-provider';
 import {
@@ -136,7 +136,7 @@ export const usdGasTokensByChain: { [chainId in ChainId]?: Token[] } = {
   [ChainId.BASE_SEPOLIA]: [USDC_BASE_SEPOLIA],
   [ChainId.UNICHAIN]: [DAI_UNICHAIN, USDC_UNICHAIN],
   [ChainId.SONEIUM]: [USDC_SONEIUM],
-  [ChainId.CITREA_TESTNET]: [CUSD_CITREA_TESTNET],
+  [ChainId.CITREA_TESTNET]: [JUSD_CITREA_TESTNET],
 };
 
 export type L1ToL2GasCosts = {
