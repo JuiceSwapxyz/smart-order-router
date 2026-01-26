@@ -59,6 +59,8 @@ export const V3_CORE_FACTORY_ADDRESSES: AddressMap = {
     CHAIN_TO_ADDRESSES_MAP[ChainId.SONEIUM].v3CoreFactoryAddress,
   [ChainId.CITREA_TESTNET]:
     CHAIN_TO_ADDRESSES_MAP[ChainId.CITREA_TESTNET].v3CoreFactoryAddress,
+  [ChainId.CITREA_MAINNET]:
+    CHAIN_TO_ADDRESSES_MAP[ChainId.CITREA_MAINNET].v3CoreFactoryAddress,
 };
 
 export const QUOTER_V2_ADDRESSES: AddressMap = {
@@ -122,6 +124,8 @@ export const NEW_QUOTER_V2_ADDRESSES: AddressMap = {
   [ChainId.SONEIUM]: CHAIN_TO_ADDRESSES_MAP[ChainId.SONEIUM].quoterAddress,
   [ChainId.CITREA_TESTNET]:
     CHAIN_TO_ADDRESSES_MAP[ChainId.CITREA_TESTNET].quoterAddress,
+  [ChainId.CITREA_MAINNET]:
+    CHAIN_TO_ADDRESSES_MAP[ChainId.CITREA_MAINNET].quoterAddress,
 };
 
 export const PROTOCOL_V4_QUOTER_ADDRESSES: AddressMap = {
