@@ -830,6 +830,22 @@ export const SV_JUSD_CITREA_TESTNET = new Token(
   'SV Juice Dollar Stablecoin'
 );
 
+export const JUSD_CITREA_MAINNET = new Token(
+  ChainId.CITREA_MAINNET,
+  ADDRESS[ChainId.CITREA_MAINNET]!.juiceDollar,
+  18,
+  'JUSD',
+  'Juice Dollar Stablecoin'
+);
+
+export const SV_JUSD_CITREA_MAINNET = new Token(
+  ChainId.CITREA_MAINNET,
+  ADDRESS[ChainId.CITREA_MAINNET]!.savingsVaultJUSD,
+  18,
+  'SV_JUSD',
+  'SV Juice Dollar Stablecoin'
+);
+
 export class TokenProvider implements ITokenProvider {
   constructor(
     private chainId: ChainId,
@@ -1141,6 +1157,8 @@ export const USDC_ON = (chainId: ChainId): Token => {
       return USDC_SONEIUM;
     case ChainId.CITREA_TESTNET:
       return JUSD_CITREA_TESTNET;
+    case ChainId.CITREA_MAINNET:
+      return JUSD_CITREA_MAINNET;
     default:
       throw new Error(`Chain id: ${chainId} not supported`);
   }
