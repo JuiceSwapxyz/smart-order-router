@@ -33,7 +33,8 @@ export const SUPPORTED_CHAINS: ChainId[] = [
   ChainId.MONAD_TESTNET,
   ChainId.BASE_SEPOLIA,
   ChainId.SONEIUM,
-  ChainId.CITREA_TESTNET
+  ChainId.CITREA_TESTNET,
+  ChainId.CITREA_MAINNET
 ];
 
 export const V2_SUPPORTED = [
@@ -172,6 +173,8 @@ export const ID_TO_CHAIN_ID = (id: number): ChainId => {
       return ChainId.SONEIUM;
     case 5115:
       return ChainId.CITREA_TESTNET;
+    case 4114:
+      return ChainId.CITREA_MAINNET;
     default:
       throw new Error(`Unknown chain id: ${id}`);
   }
@@ -207,6 +210,7 @@ export enum ChainName {
   MONAD_TESTNET = 'monad-testnet',
   SONEIUM = 'soneium-mainnet',
   CITREA_TESTNET = 'citrea-testnet',
+  CITREA_MAINNET = 'citrea-mainnet',
 }
 
 export enum NativeCurrencyName {
@@ -338,6 +342,11 @@ export const NATIVE_NAMES_BY_ID: { [chainId: number]: string[] } = {
     'CITREA',
     '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
   ],
+  [ChainId.CITREA_MAINNET]: [
+    'cBTC',
+    'CITREA',
+    '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
+  ],
 };
 
 export const NATIVE_CURRENCY: { [chainId: number]: NativeCurrencyName } = {
@@ -369,6 +378,7 @@ export const NATIVE_CURRENCY: { [chainId: number]: NativeCurrencyName } = {
   [ChainId.UNICHAIN]: NativeCurrencyName.ETHER,
   [ChainId.SONEIUM]: NativeCurrencyName.ETHER,
   [ChainId.CITREA_TESTNET]: NativeCurrencyName.CITREA,
+  [ChainId.CITREA_MAINNET]: NativeCurrencyName.CITREA,
 };
 
 export const ID_TO_NETWORK_NAME = (id: number): ChainName => {
@@ -431,6 +441,8 @@ export const ID_TO_NETWORK_NAME = (id: number): ChainName => {
       return ChainName.SONEIUM;
     case 5115:
       return ChainName.CITREA_TESTNET;
+    case 4114:
+      return ChainName.CITREA_MAINNET;
     default:
       throw new Error(`Unknown chain id: ${id}`);
   }
@@ -494,6 +506,8 @@ export const ID_TO_PROVIDER = (id: ChainId): string => {
       return process.env.JSON_RPC_PROVIDER_SONEIUM!;
     case ChainId.CITREA_TESTNET:
       return process.env.JSON_RPC_PROVIDER_CITREA_TESTNET!;
+    case ChainId.CITREA_MAINNET:
+      return process.env.JSON_RPC_PROVIDER_CITREA_MAINNET!;
     default:
       throw new Error(`Chain id: ${id} not supported`);
   }
