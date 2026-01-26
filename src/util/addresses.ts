@@ -215,6 +215,8 @@ export const UNISWAP_MULTICALL_ADDRESSES: AddressMap = {
   [ChainId.SONEIUM]: CHAIN_TO_ADDRESSES_MAP[ChainId.SONEIUM].multicallAddress,
   [ChainId.CITREA_TESTNET]:
     CHAIN_TO_ADDRESSES_MAP[ChainId.CITREA_TESTNET].multicallAddress,
+  [ChainId.CITREA_MAINNET]:
+    CHAIN_TO_ADDRESSES_MAP[ChainId.CITREA_MAINNET].multicallAddress,
 };
 
 export const SWAP_ROUTER_02_ADDRESSES = (chainId: number): string => {
