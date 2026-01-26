@@ -25,6 +25,13 @@ type IReserves = {
 };
 
 /**
+ * Token pair with optional pool address.
+ * When poolAddress is provided, it will be used instead of computing via Pair.getAddress().
+ * This is needed for pools created by non-standard factories (e.g. Launchpad pools).
+ */
+export type V2TokenPair = [Token, Token] | { tokenA: Token; tokenB: Token; poolAddress: string };
+
+/**
  * Provider for getting V2 pools.
  *
  * @export
@@ -34,12 +41,13 @@ export interface IV2PoolProvider {
   /**
    * Gets the pools for the specified token pairs.
    *
-   * @param tokenPairs The token pairs to get.
+   * @param tokenPairs The token pairs to get. Can be simple [Token, Token] tuples
+   *   or objects with { tokenA, tokenB, poolAddress } for pools with known addresses.
    * @param [providerConfig] The provider config.
    * @returns A pool accessor with methods for accessing the pools.
    */
   getPools(
-    tokenPairs: [Token, Token][],
+    tokenPairs: V2TokenPair[],
     providerConfig?: ProviderConfig
   ): Promise<V2PoolAccessor>;
 
@@ -88,7 +96,7 @@ export class V2PoolProvider implements IV2PoolProvider {
   ) { }
 
   public async getPools(
-    tokenPairs: [Token, Token][],
+    tokenPairs: V2TokenPair[],
     providerConfig?: ProviderConfig
   ): Promise<V2PoolAccessor> {
     const poolAddressSet: Set<string> = new Set<string>();
@@ -96,12 +104,32 @@ export class V2PoolProvider implements IV2PoolProvider {
     const sortedPoolAddresses: string[] = [];
 
     for (const tokenPair of tokenPairs) {
-      const [tokenA, tokenB] = tokenPair;
+      let tokenA: Token;
+      let tokenB: Token;
+      let providedPoolAddress: string | undefined;
 
-      const { poolAddress, token0, token1 } = this.getPoolAddress(
-        tokenA,
-        tokenB
-      );
+      // Handle both tuple and object formats
+      if (Array.isArray(tokenPair)) {
+        [tokenA, tokenB] = tokenPair;
+      } else {
+        tokenA = tokenPair.tokenA;
+        tokenB = tokenPair.tokenB;
+        providedPoolAddress = tokenPair.poolAddress;
+      }
+
+      const [token0, token1] = tokenA.sortsBefore(tokenB)
+        ? [tokenA, tokenB]
+        : [tokenB, tokenA];
+
+      let poolAddress: string;
+      if (providedPoolAddress) {
+        poolAddress = providedPoolAddress;
+        // Cache the provided address so getPool() and getPoolAddress() can find it later
+        const cacheKey = `${this.chainId}/${token0.address}/${token1.address}`;
+        this.POOL_ADDRESS_CACHE[cacheKey] = providedPoolAddress;
+      } else {
+        poolAddress = this.getPoolAddress(tokenA, tokenB).poolAddress;
+      }
 
       if (poolAddressSet.has(poolAddress)) {
         continue;
@@ -305,12 +333,17 @@ export class V2PoolProvider implements IV2PoolProvider {
   }
 
   // We are using ES2017. ES2019 has native flatMap support
-  private flatten(tokenPairs: Array<[Token, Token]>): Token[] {
+  private flatten(tokenPairs: V2TokenPair[]): Token[] {
     const tokens = new Array<Token>();
 
-    for (const [tokenA, tokenB] of tokenPairs) {
-      tokens.push(tokenA);
-      tokens.push(tokenB);
+    for (const tokenPair of tokenPairs) {
+      if (Array.isArray(tokenPair)) {
+        tokens.push(tokenPair[0]);
+        tokens.push(tokenPair[1]);
+      } else {
+        tokens.push(tokenPair.tokenA);
+        tokens.push(tokenPair.tokenB);
+      }
     }
 
     return tokens;

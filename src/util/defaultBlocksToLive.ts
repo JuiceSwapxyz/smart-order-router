@@ -47,4 +47,5 @@ export const DEFAULT_BLOCKS_TO_LIVE: { [chain in ChainId]: number } = {
   // (60 minutes) / (1 seconds) = 3600
   [ChainId.SONEIUM]: 3600,
   [ChainId.CITREA_TESTNET]: 3600,
+  [ChainId.CITREA_MAINNET]: 3600,
 };

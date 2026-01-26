@@ -33,6 +33,7 @@ export const BASE_SWAP_COST = (id: ChainId): BigNumber => {
     case ChainId.MONAD_TESTNET: // TODO: double check on monad gas
     case ChainId.SONEIUM:
     case ChainId.CITREA_TESTNET:
+    case ChainId.CITREA_MAINNET:
       return BigNumber.from(2000);
     case ChainId.ARBITRUM_ONE:
     case ChainId.ARBITRUM_GOERLI:
@@ -78,6 +79,7 @@ export const COST_PER_INIT_TICK = (id: ChainId): BigNumber => {
     case ChainId.MONAD_TESTNET: // TODO: double check on monad gas
     case ChainId.SONEIUM:
     case ChainId.CITREA_TESTNET:
+    case ChainId.CITREA_MAINNET:
       return BigNumber.from(31000);
     case ChainId.ARBITRUM_ONE:
     case ChainId.ARBITRUM_GOERLI:
@@ -120,6 +122,7 @@ export const COST_PER_HOP = (id: ChainId): BigNumber => {
     case ChainId.MONAD_TESTNET: // TODO: double check on monad gas
     case ChainId.SONEIUM:
     case ChainId.CITREA_TESTNET:
+    case ChainId.CITREA_MAINNET:
       return BigNumber.from(80000);
     case ChainId.ARBITRUM_ONE:
     case ChainId.ARBITRUM_GOERLI:

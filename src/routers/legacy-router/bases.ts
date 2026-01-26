@@ -123,6 +123,9 @@ export const BASES_TO_CHECK_TRADES_AGAINST = (
     [ChainId.CITREA_TESTNET]: [
       WRAPPED_NATIVE_CURRENCY[ChainId.CITREA_TESTNET]!,
     ],
+    [ChainId.CITREA_MAINNET]: [
+      WRAPPED_NATIVE_CURRENCY[ChainId.CITREA_MAINNET]!,
+    ],
   };
 };
 

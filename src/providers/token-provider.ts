@@ -9,6 +9,7 @@ import { log, WRAPPED_NATIVE_CURRENCY } from '../util';
 
 import { IMulticallProvider, Result } from './multicall-provider';
 import { ProviderConfig } from './provider';
+import { ADDRESS } from '@juicedollar/jusd';
 
 /**
  * Provider for getting token data.
@@ -813,6 +814,22 @@ export const CUSD_CITREA_TESTNET = new Token(
   'Citrea Dollar Stablecoin'
 );
 
+export const JUSD_CITREA_TESTNET = new Token(
+  ChainId.CITREA_TESTNET,
+  ADDRESS[ChainId.CITREA_TESTNET]!.juiceDollar,
+  18,
+  'JUSD',
+  'Juice Dollar Stablecoin'
+);
+
+export const SV_JUSD_CITREA_TESTNET = new Token(
+  ChainId.CITREA_TESTNET,
+  ADDRESS[ChainId.CITREA_TESTNET]!.savingsVaultJUSD,
+  18,
+  'SV_JUSD',
+  'SV Juice Dollar Stablecoin'
+);
+
 export class TokenProvider implements ITokenProvider {
   constructor(
     private chainId: ChainId,
@@ -1123,7 +1140,7 @@ export const USDC_ON = (chainId: ChainId): Token => {
     case ChainId.SONEIUM:
       return USDC_SONEIUM;
     case ChainId.CITREA_TESTNET:
-      return CUSD_CITREA_TESTNET;
+      return JUSD_CITREA_TESTNET;
     default:
       throw new Error(`Chain id: ${chainId} not supported`);
   }
