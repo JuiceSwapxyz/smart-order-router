@@ -76,6 +76,7 @@ import {
 import {
   IV2PoolProvider,
   V2PoolAccessor,
+  V2TokenPair,
 } from '../../../providers/v2/pool-provider';
 import {
   IV3PoolProvider,
@@ -2003,7 +2004,7 @@ export async function getV2CandidatePools({
     `V2 Candidate pools`
   );
 
-  const tokenPairsRaw = _.map<V2SubgraphPool, [Token, Token] | undefined>(
+  const tokenPairsRaw = _.map<V2SubgraphPool, V2TokenPair | undefined>(
     subgraphPools,
     (subgraphPool) => {
       const tokenA = tokenAccessor.getTokenByAddress(subgraphPool.token0.id);
@@ -2016,7 +2017,10 @@ export async function getV2CandidatePools({
         return undefined;
       }
 
-      return [tokenA, tokenB];
+      // Use the subgraph pool address directly instead of computing it.
+      // This is necessary for pools created by non-standard factories (e.g. Launchpad pools)
+      // where the computed address doesn't match the actual pool address.
+      return { tokenA, tokenB, poolAddress: subgraphPool.id };
     }
   );
 
@@ -2354,7 +2358,7 @@ export async function getMixedRouteCandidatePools({
 
   const V3tokenPairs = _.compact(V3tokenPairsRaw);
 
-  const V2tokenPairsRaw = _.map<V2SubgraphPool, [Token, Token] | undefined>(
+  const V2tokenPairsRaw = _.map<V2SubgraphPool, V2TokenPair | undefined>(
     buildV2Pools,
     (subgraphPool) => {
       const tokenA = tokenAccessor.getTokenByAddress(subgraphPool.token0.id);
@@ -2367,7 +2371,10 @@ export async function getMixedRouteCandidatePools({
         return undefined;
       }
 
-      return [tokenA, tokenB];
+      // Use the subgraph pool address directly instead of computing it.
+      // This is necessary for pools created by non-standard factories (e.g. Launchpad pools)
+      // where the computed address doesn't match the actual pool address.
+      return { tokenA, tokenB, poolAddress: subgraphPool.id };
     }
   );
 

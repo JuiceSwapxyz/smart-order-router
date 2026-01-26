@@ -6,7 +6,7 @@ import { log } from '../../util/log';
 
 import { ICache } from './../cache';
 import { ProviderConfig } from './../provider';
-import { IV2PoolProvider, V2PoolAccessor } from './pool-provider';
+import { IV2PoolProvider, V2PoolAccessor, V2TokenPair } from './pool-provider';
 
 /**
  * Provider for getting V2 pools, with functionality for caching the results per block.
@@ -34,21 +34,34 @@ export class CachingV2PoolProvider implements IV2PoolProvider {
   ) { }
 
   public async getPools(
-    tokenPairs: [Token, Token][],
+    tokenPairs: V2TokenPair[],
     providerConfig?: ProviderConfig
   ): Promise<V2PoolAccessor> {
     const poolAddressSet: Set<string> = new Set<string>();
-    const poolsToGetTokenPairs: Array<[Token, Token]> = [];
+    const poolsToGetTokenPairs: V2TokenPair[] = [];
     const poolsToGetAddresses: string[] = [];
     const poolAddressToPool: { [poolAddress: string]: Pair } = {};
 
     const blockNumber = await providerConfig?.blockNumber;
 
-    for (const [tokenA, tokenB] of tokenPairs) {
-      const { poolAddress, token0, token1 } = this.getPoolAddress(
-        tokenA,
-        tokenB
-      );
+    for (const tokenPair of tokenPairs) {
+      let tokenA: Token;
+      let tokenB: Token;
+      let providedPoolAddress: string | undefined;
+
+      // Handle both tuple and object formats
+      if (Array.isArray(tokenPair)) {
+        [tokenA, tokenB] = tokenPair;
+      } else {
+        tokenA = tokenPair.tokenA;
+        tokenB = tokenPair.tokenB;
+        providedPoolAddress = tokenPair.poolAddress;
+      }
+
+      const { token0, token1 } = this.getPoolAddress(tokenA, tokenB);
+
+      // Use provided address or compute it
+      const poolAddress = providedPoolAddress ?? this.getPoolAddress(tokenA, tokenB).poolAddress;
 
       if (poolAddressSet.has(poolAddress)) {
         continue;
@@ -70,7 +83,12 @@ export class CachingV2PoolProvider implements IV2PoolProvider {
         }
       }
 
-      poolsToGetTokenPairs.push([token0, token1]);
+      // Pass through the original format (with pool address if provided)
+      if (providedPoolAddress) {
+        poolsToGetTokenPairs.push({ tokenA: token0, tokenB: token1, poolAddress: providedPoolAddress });
+      } else {
+        poolsToGetTokenPairs.push([token0, token1]);
+      }
       poolsToGetAddresses.push(poolAddress);
     }
 
@@ -82,7 +100,12 @@ export class CachingV2PoolProvider implements IV2PoolProvider {
         ),
         poolsToGetTokenPairs: _.map(
           poolsToGetTokenPairs,
-          (t) => t[0].symbol + ' ' + t[1].symbol
+          (t) => {
+            if (Array.isArray(t)) {
+              return t[0].symbol + ' ' + t[1].symbol;
+            }
+            return t.tokenA.symbol + ' ' + t.tokenB.symbol;
+          }
         ),
       },
       `Found ${Object.keys(poolAddressToPool).length
