@@ -58,10 +58,11 @@ export class CachingV2PoolProvider implements IV2PoolProvider {
         providedPoolAddress = tokenPair.poolAddress;
       }
 
-      const { token0, token1 } = this.getPoolAddress(tokenA, tokenB);
+      // Get sorted tokens once
+      const { poolAddress: computedAddress, token0, token1 } = this.getPoolAddress(tokenA, tokenB);
 
-      // Use provided address or compute it
-      const poolAddress = providedPoolAddress ?? this.getPoolAddress(tokenA, tokenB).poolAddress;
+      // Use provided address or computed one
+      const poolAddress = providedPoolAddress ?? computedAddress;
 
       if (poolAddressSet.has(poolAddress)) {
         continue;

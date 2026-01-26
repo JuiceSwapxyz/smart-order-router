@@ -121,8 +121,15 @@ export class V2PoolProvider implements IV2PoolProvider {
         ? [tokenA, tokenB]
         : [tokenB, tokenA];
 
-      // Use provided address or compute it
-      const poolAddress = providedPoolAddress ?? this.getPoolAddress(tokenA, tokenB).poolAddress;
+      let poolAddress: string;
+      if (providedPoolAddress) {
+        poolAddress = providedPoolAddress;
+        // Cache the provided address so getPool() and getPoolAddress() can find it later
+        const cacheKey = `${this.chainId}/${token0.address}/${token1.address}`;
+        this.POOL_ADDRESS_CACHE[cacheKey] = providedPoolAddress;
+      } else {
+        poolAddress = this.getPoolAddress(tokenA, tokenB).poolAddress;
+      }
 
       if (poolAddressSet.has(poolAddress)) {
         continue;
