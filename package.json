@@ -1,6 +1,6 @@
 {
   "name": "@juiceswapxyz/smart-order-router",
-  "version": "0.1.8-beta.0",
+  "version": "0.1.9-beta.0",
   "description": "JuiceSwap Smart Order Router",
   "main": "build/main/index.js",
   "typings": "build/main/index.d.ts",
