@@ -1,27 +1,17 @@
 name: Release
 
-on: workflow_dispatch # TODO set this on a deploy schedule
+on: workflow_dispatch
 
 jobs:
   release:
     name: Release
     environment:
       name: release
-    runs-on:
-      group: npm-deploy
+    runs-on: ubuntu-latest
     permissions:
-      contents: write
+      contents: read
       id-token: write
     steps:
-      - name: Load Secrets
-        uses: 1password/load-secrets-action@581a835fb51b8e7ec56b71cf2ffddd7e68bb25e0
-        with:
-          # Export loaded secrets as environment variables
-          export-env: true
-        env:
-          OP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
-          NPM_TOKEN: op://npm-deploy/npm-runner-token/secret
-      
       - name: Checkout
         uses: actions/checkout@v4
         with:
@@ -33,17 +23,15 @@ jobs:
         with:
           node-version: 18
           registry-url: 'https://registry.npmjs.org'
-          # Defaults to the user or organization that owns the workflow file
-          scope: '@uniswap'
-      
-      - name: Setup CI
-        run: npm ci 
-      
+          scope: '@juiceswapxyz'
+
+      - name: Install dependencies
+        run: npm ci
+
       - name: Build
         run: npm run build
-      
-      - name: Publish
-        run: npm publish --provenance
-        env:
-          NODE_AUTH_TOKEN: ${{ env.NPM_TOKEN }}
 
+      - name: Publish
+        run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
