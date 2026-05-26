@@ -57,7 +57,7 @@ export async function getV2NativePool(
   const pool = poolAccessor.getPool(weth, token);
 
   if (!pool || pool.reserve0.equalTo(0) || pool.reserve1.equalTo(0)) {
-    log.error(
+    log.warn(
       {
         weth,
         token,
@@ -98,7 +98,7 @@ export async function getHighestLiquidityV3NativePool(
     .value();
 
   if (pools.length == 0) {
-    log.error(
+    log.warn(
       { pools },
       `Could not find a ${nativeCurrency.symbol} pool with ${token.symbol} for computing gas costs.`
     );

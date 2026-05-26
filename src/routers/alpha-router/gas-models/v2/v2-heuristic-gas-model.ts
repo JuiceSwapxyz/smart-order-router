@@ -238,7 +238,7 @@ export class V2HeuristicGasModelFactory extends IV2GasModelFactory {
     const pool = poolAccessor.getPool(weth, token);
 
     if (!pool || pool.reserve0.equalTo(0) || pool.reserve1.equalTo(0)) {
-      log.error(
+      log.warn(
         {
           weth,
           token,
